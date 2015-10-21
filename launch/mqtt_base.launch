@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find iot_bridge)/launch/iot.launch" />
+
+  <node pkg="mqtt_drive_base" type="mqtt_drive_base" name="mqtt_drive_base" respawn="false" />
+  
+  <node pkg="rosserial_python" type="serial_node.py" name="arduino" args="_port:=/dev/ttyACM0 _baud:=115200" />
+  
+</launch>
+

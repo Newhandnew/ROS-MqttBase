@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(drive_base_tutorial)
+project(mqtt_drive_base)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
+  std_msgs
   roscpp
+  diagnostic_msgs
+  # thread
 )
 
 ## System dependencies are found with CMake's conventions
@@ -97,19 +99,19 @@ include_directories(
 )
 
 ## Declare a cpp library
-# add_library(drive_base_tutorial
-#   src/${PROJECT_NAME}/drive_base_tutorial.cpp
+# add_library(MqttBase
+#   src/mqttDriveBase.cpp
 # )
 
 ## Declare a cpp executable
-add_executable(teleop_test src/drivekey.cpp)
+add_executable(mqtt_drive_base src/main.cpp src/mqttDriveBase.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(drive_base_tutorial_node drive_base_tutorial_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(teleop_test
+target_link_libraries(mqtt_drive_base
   ${catkin_LIBRARIES}
 )
 
