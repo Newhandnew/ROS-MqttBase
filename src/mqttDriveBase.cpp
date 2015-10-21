@@ -26,24 +26,30 @@ void MqttBase::keyDetect() {
   int c = getchar();  // read character (non-blocking)
 
   tcsetattr( STDIN_FILENO, TCSANOW, &oldt);  // restore old settings
-  ROS_INFO("get a key %d", c);
+  //ROS_INFO("get a key %d", c);
   switch(c) {
     case KEYCODE_I:
       sendCommand("a");
+      ROS_INFO("key forward");
       break;
     case KEYCODE_COMMA:
       sendCommand("b");
+      ROS_INFO("key backward");
       break;
     case KEYCODE_J:
       sendCommand("c");
+      ROS_INFO("key left");
       break;
     case KEYCODE_L:
       sendCommand("d");
+      ROS_INFO("key right");
       break;
     case KEYCODE_K:
       sendCommand("e");
+      ROS_INFO("key stop");
       break;
     case KEYCODE_ESC:
+      ROS_INFO("key exit");
       quit();
       break;
   }
